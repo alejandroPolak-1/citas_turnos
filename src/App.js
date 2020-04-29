@@ -3,13 +3,23 @@ import Formulario from './components/Formulario'
 import Date from './components/Date'
 
 function App() {
+  //Citas en Local Storage
+  let datesIniciales= JSON.parse(localStorage.getItem('dates'));
+  if(!datesIniciales) {
+    datesIniciales= []
+  }
+
   // Aggrego de Citas
-  const [dates, setDates] = useState([])
+  const [dates, setDates] = useState(datesIniciales)
 
   //Use Effect para realizar ciertas operaciones cuando el state cambia
   useEffect(() => {
-    console.log('listooo o algo paso')
-  }, [dates])
+    if(datesIniciales) {
+      localStorage.setItem('dates', JSON.stringify(dates))
+    } else {
+      localStorage.setItem('dates', JSON.stringify([]))
+    }
+  }, [dates, datesIniciales])
 
   //Funcion que tome citas actuales y agrege la nueva
 
