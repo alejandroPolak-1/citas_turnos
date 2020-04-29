@@ -50,6 +50,14 @@ const Formulario = ({createDate}) => {
     createDate(date);
 
     //Reiniciar el form
+    setDate({
+        mascota: '',
+        propietario: '',
+        fecha: '',
+        hora: '',
+        sintomas: '',
+      })
+
   }
 
   return (
