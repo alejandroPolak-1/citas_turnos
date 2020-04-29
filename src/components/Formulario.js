@@ -17,13 +17,30 @@ const Formulario = () => {
     })
   }
 
-const {mascota,propietario,fecha,hora,sintoma} = data;
+  //Destructuramos para extraer valores
+const {mascota,propietario,fecha,hora,sintomas} = data;
+
+// CUando el usuario presiona agregar cita
+const SubmitData = e => {
+    e.preventDefault();
+    
+    //Validar
+
+    //Asignar un ID
+
+    //Crear la cita
+
+    //Reiniciar el form
+    
+}
 
   return (
     <Fragment>
       <h2>Crear Cita</h2>
 
-      <form>
+      <form
+      onSubmit={SubmitData}
+      >
         <label>Nombre Mascota</label>
         <input
           type="text"
@@ -59,7 +76,7 @@ const {mascota,propietario,fecha,hora,sintoma} = data;
           name="hora"
           className="u-full-width"
           onChange={handleChange}
-          value={time}
+          value={hora}
         />
 
         <label>Sintomas</label>
