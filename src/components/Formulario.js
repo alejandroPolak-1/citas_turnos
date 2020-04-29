@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import uuid from 'uuid/v4'
+import PropTypes from 'prop-types'
 
 const Formulario = ({createDate}) => {
   //Crear State de Citas
@@ -125,6 +126,10 @@ const Formulario = ({createDate}) => {
       </form>
     </Fragment>
   )
+}
+
+Formulario.propTypes= {
+  createDate: PropTypes.func.isRequired
 }
 
 export default Formulario

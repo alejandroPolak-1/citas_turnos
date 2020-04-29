@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const Date = ({date, removeDate}) => (
     <div className="cita">
@@ -15,5 +16,10 @@ const Date = ({date, removeDate}) => (
     
     </div>
 )
+
+Date.propTypes = {
+    date: PropTypes.object.isRequired,
+    removeDate: PropTypes.func.isRequired,
+}
  
 export default Date;
