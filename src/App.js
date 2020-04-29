@@ -1,10 +1,15 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Formulario from './components/Formulario'
 import Date from './components/Date'
 
 function App() {
   // Aggrego de Citas
   const [dates, setDates] = useState([])
+
+  //Use Effect para realizar ciertas operaciones cuando el state cambia
+  useEffect(() => {
+    console.log('listooo o algo paso')
+  }, [dates])
 
   //Funcion que tome citas actuales y agrege la nueva
 
