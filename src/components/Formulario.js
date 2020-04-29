@@ -9,38 +9,51 @@ const Formulario = () => {
     hora: '',
     sintoma: '',
   })
+
+  const [error, setError] = useState(false)
+
   //función que se ejecuta cada vez que el usuario escribe en el input
   const handleChange = (e) => {
     setData({
-        ...data,
-        [e.target.name]: e.target.value
+      ...data,
+      [e.target.name]: e.target.value,
     })
   }
 
-  //Destructuramos para extraer valores
-const {mascota,propietario,fecha,hora,sintomas} = data;
+  //Destructuramos para extraer valores del state
+  const { mascota, propietario, fecha, hora, sintomas } = data
 
-// CUando el usuario presiona agregar cita
-const SubmitData = e => {
-    e.preventDefault();
-    
-    //Validar
+  // CUando el usuario presiona agregar cita
+  const SubmitData = (e) => {
+    e.preventDefault()
 
+    //Validar que todos los campos esten completos
+    if (
+      mascota.trim() === '' ||
+      propietario.trim() === '' ||
+      fecha.trim() === '' ||
+      hora.trim() === '' ||
+      sintomas.trim() === ''
+    ) {
+      setError(true)
+      return
+    }
+
+    console.log('agregando')
     //Asignar un ID
 
     //Crear la cita
 
     //Reiniciar el form
-    
-}
+  }
 
   return (
     <Fragment>
       <h2>Crear Cita</h2>
 
-      <form
-      onSubmit={SubmitData}
-      >
+        { error ? <p className="alerta-error">Todos los campos son obligatorios </p>   : null}
+
+      <form onSubmit={SubmitData}>
         <label>Nombre Mascota</label>
         <input
           type="text"
