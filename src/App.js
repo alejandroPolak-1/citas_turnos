@@ -12,6 +12,11 @@ function App() {
     setDates([...dates, date])
   }
 
+  // Funcion que elimina una cita por su Id
+  const removeDate= id =>{
+    console.log(id)
+  }
+
   return (
     <Fragment>
       <h1>Administración de Pacientes</h1>
@@ -27,6 +32,7 @@ function App() {
               <Date
                key={date.id} 
                date={date} 
+               removeDate= {removeDate}
               />
             ))}
           </div>
