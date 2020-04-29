@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react'
 import uuid from 'uuid/v4'
 
-const Formulario = () => {
+const Formulario = ({createDate}) => {
   //Crear State de Citas
-  const [data, setData] = useState({
+  const [date, setDate] = useState({
     mascota: '',
     propietario: '',
     fecha: '',
@@ -15,14 +15,14 @@ const Formulario = () => {
 
   //función que se ejecuta cada vez que el usuario escribe en el input
   const handleChange = (e) => {
-    setData({
-      ...data,
+    setDate({
+      ...date,
       [e.target.name]: e.target.value,
     })
   }
 
   //Destructuramos para extraer valores del state
-  const { mascota, propietario, fecha, hora, sintomas } = data
+  const { mascota, propietario, fecha, hora, sintomas } = date
 
   // CUando el usuario presiona agregar cita
   const SubmitData = (e) => {
@@ -41,13 +41,13 @@ const Formulario = () => {
     }
 
     //Asignar un ID
-    data.id = uuid()
-    console.log(data)
+    date.id = uuid()
 
     //Eliminar el mensaje previo
     setError(false)
     
     //Crear la cita
+    createDate(date);
 
     //Reiniciar el form
   }
@@ -66,7 +66,7 @@ const Formulario = () => {
           type="text"
           name="mascota"
           className="u-full-width"
-          paceholder="Nombre mascota"
+          placeholder="Nombre mascota"
           onChange={handleChange}
           value={mascota}
         />
@@ -76,7 +76,7 @@ const Formulario = () => {
           type="text"
           name="propietario"
           className="u-full-width"
-          paceholder="Nombre dueño de la mascota"
+          placeholder="Nombre dueño de la mascota"
           onChange={handleChange}
           value={propietario}
         />
