@@ -8,10 +8,11 @@ function App() {
 
   //Funcion que tome citas actuales y agrege la nueva
 
-  const createDate = cita => {
-    console.log(cita);
-    
-
+  const createDate = date => {
+    setDates([
+      ...dates,
+      date
+    ]);
   }
 
   return (

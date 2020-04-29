@@ -8,7 +8,7 @@ const Formulario = ({createDate}) => {
     propietario: '',
     fecha: '',
     hora: '',
-    sintoma: '',
+    sintomas: '',
   })
 
   const [error, setError] = useState(false)
