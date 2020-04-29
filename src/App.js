@@ -14,7 +14,8 @@ function App() {
 
   // Funcion que elimina una cita por su Id
   const removeDate= id =>{
-    console.log(id)
+    const newDates = dates.filter(date => date.id !== id);
+    setDates(newDates);
   }
 
   return (
