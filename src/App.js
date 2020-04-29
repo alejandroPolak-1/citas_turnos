@@ -13,10 +13,13 @@ function App() {
   }
 
   // Funcion que elimina una cita por su Id
-  const removeDate= id =>{
-    const newDates = dates.filter(date => date.id !== id);
-    setDates(newDates);
+  const removeDate = (id) => {
+    const newDates = dates.filter((date) => date.id !== id)
+    setDates(newDates)
   }
+
+  //mensage condicional
+  const title = dates.length === 0 ? 'No hay citas' : 'Administra tus citas'
 
   return (
     <Fragment>
@@ -28,13 +31,9 @@ function App() {
           </div>
 
           <div className="one-half column">
-            <h2>Administra tus citas</h2>
+            <h2>{title}</h2>
             {dates.map((date) => (
-              <Date
-               key={date.id} 
-               date={date} 
-               removeDate= {removeDate}
-              />
+              <Date key={date.id} date={date} removeDate={removeDate} />
             ))}
           </div>
         </div>
